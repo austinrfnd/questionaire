@@ -21,6 +21,10 @@ describe QuestionsController do
     it "recognizes and generates #edit" do
       { :get => "/questions/1/edit" }.should route_to(:controller => "questions", :action => "edit", :id => "1")
     end
+    
+    it "recognizes and generates #edit" do
+      { :put => "/questions/1/disable" }.should route_to(:controller => "questions", :action => "disable", :id => "1")
+    end    
 
     it "recognizes and generates #create" do
       { :post => "/questions" }.should route_to(:controller => "questions", :action => "create") 
