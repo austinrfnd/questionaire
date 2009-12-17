@@ -80,16 +80,6 @@ class QuestionsController < ApplicationController
 
   # DELETE /questions/1
   # DELETE /questions/1.xml
-  def destroy
-    @question = Question.find(params[:id])
-    @question.destroy
-
-    respond_to do |format|
-      # format.html { redirect_to(questions_url) }
-      format.xml  { head :ok }
-    end
-  end
-  
   def admin
   end
 end

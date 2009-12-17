@@ -6,6 +6,13 @@ describe QuestionsController do
     @mock_question ||= mock_model(Question, stubs)
   end
 
+  describe "GET admin" do
+    it "get admin successfully" do
+      get :admin
+      response.should be_success
+    end
+  end
+
   describe "GET index" do
     it "assigns all questions as @questions" do
       Question.stub!(:find).with(:all).and_return([mock_question])
@@ -114,18 +121,18 @@ describe QuestionsController do
 
   end
 
-  describe "DELETE destroy" do
-    it "destroys the requested question" do
-      Question.should_receive(:find).with("37").and_return(mock_question)
-      mock_question.should_receive(:destroy)
-      delete :destroy, :id => "37"
-    end
-
+  # describe "DELETE destroy" do
+  #   it "destroys the requested question" do
+  #     Question.should_receive(:find).with("37").and_return(mock_question)
+  #     mock_question.should_receive(:destroy)
+  #     delete :destroy, :id => "37"
+  #   end
+  # 
     # it "redirects to the questions list" do
     #   Question.stub!(:find).and_return(mock_question(:destroy => true))
     #   delete :destroy, :id => "1"
     #   response.should redirect_to(questions_url)
     # end
-  end
+  # end
 
 end
