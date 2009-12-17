@@ -19,6 +19,12 @@ describe QuestionsController do
       get :index
       assigns[:questions].should == [mock_question]
     end
+    
+    it "should do all_ready_to_go if params[:all] is passed in" do
+      Question.should_receive(:all_ready_to_go).and_return([mock_question({:to_xml => 'asdf'})])
+      get :index, :all => true
+      assigns[:questions].should == [mock_question]
+    end
   end
 
   describe "GET show" do

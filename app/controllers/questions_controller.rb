@@ -2,8 +2,12 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.xml
   def index
-    @questions = Question.ready_to_go
-
+    if params[:all]
+      @questions = Question.all_ready_to_go
+    else
+      @questions = Question.ready_to_go
+    end
+    
     respond_to do |format|
       # format.html # index.html.erb
       format.xml  { render :xml => @questions }
@@ -78,8 +82,7 @@ class QuestionsController < ApplicationController
     end
   end
 
-  # DELETE /questions/1
-  # DELETE /questions/1.xml
+  # /questions/admin
   def admin
   end
 end
