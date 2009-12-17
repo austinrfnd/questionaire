@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     end
     
     respond_to do |format|
-      # format.html # index.html.erb
+      format.html { render :partial => "question", :collection => @questions }
       format.xml  { render :xml => @questions }
       format.json { render :json => @questions }
     end
@@ -84,6 +84,6 @@ class QuestionsController < ApplicationController
 
   # /questions/admin
   def admin
-    @questions = Question.ready_to_go
+    @questions = Question.all_ready_to_go
   end
 end

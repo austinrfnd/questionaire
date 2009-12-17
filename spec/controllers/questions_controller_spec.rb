@@ -15,15 +15,15 @@ describe QuestionsController do
 
   describe "GET index" do
     it "assigns all questions as @questions" do
-      Question.stub!(:find).with(:all).and_return([mock_question({:to_xml => 'asdf'})])
+      Question.should_receive(:ready_to_go).and_return([questions(:one)])
       get :index
-      assigns[:questions].should == [mock_question]
+      assigns[:questions].should == [questions(:one)]
     end
     
     it "should do all_ready_to_go if params[:all] is passed in" do
-      Question.should_receive(:all_ready_to_go).and_return([mock_question({:to_xml => 'asdf'})])
+      Question.should_receive(:all_ready_to_go).and_return([questions(:one)])
       get :index, :all => true
-      assigns[:questions].should == [mock_question]
+      assigns[:questions].should == [questions(:one)]
     end
   end
 
