@@ -15,7 +15,7 @@ describe QuestionsController do
 
   describe "GET index" do
     it "assigns all questions as @questions" do
-      Question.stub!(:find).with(:all).and_return([mock_question])
+      Question.stub!(:find).with(:all).and_return([mock_question({:to_xml => 'asdf'})])
       get :index
       assigns[:questions].should == [mock_question]
     end
@@ -37,13 +37,13 @@ describe QuestionsController do
     end
   end
 
-  describe "GET edit" do
-    it "assigns the requested question as @question" do
-      Question.stub!(:find).with("37").and_return(mock_question)
-      get :edit, :id => "37"
-      assigns[:question].should equal(mock_question)
-    end
-  end
+  # describe "GET edit" do
+  #   it "assigns the requested question as @question" do
+  #     Question.stub!(:find).with("37").and_return(mock_question)
+  #     get :edit, :id => "37"
+  #     assigns[:question].should equal(mock_question)
+  #   end
+  # end
 
   describe "POST create" do
 
