@@ -84,5 +84,6 @@ class QuestionsController < ApplicationController
 
   # /questions/admin
   def admin
+    @questions = Question.ready_to_go
   end
 end

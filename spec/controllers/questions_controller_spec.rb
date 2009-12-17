@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe QuestionsController do
-
+  integrate_views
   def mock_question(stubs={})
     @mock_question ||= mock_model(Question, stubs)
   end

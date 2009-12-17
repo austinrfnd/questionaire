@@ -1,0 +1,11 @@
+%table
+	%tr
+		%th= "User Id"
+		%th= "Question"
+		%th= "Disable Question"
+	- @questions.each do |question|
+		%tr{:id => question.id}
+			%td= question.user_id
+			%td= question.question
+			%td= check_box_tag( 'disabled')
+				
