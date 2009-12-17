@@ -1,6 +1,7 @@
-%table
+%table{:id => 'questions_table'}
 	%tr
 		%th= "User Id"
 		%th= "Question"
 		%th= "Disable Question"
+	%tr{:id => 'blank_shit', :style => 'display:none;'}
 	- render :partial => "question", :collection => @questions
