@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.integer :user_id
       t.text :question
-      t.boolean :disable
+      t.boolean :disable, :default => false
 
       t.timestamps
     end

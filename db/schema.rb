@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20091217194553) do
   create_table "questions", :force => true do |t|
     t.integer  "user_id"
     t.text     "question"
-    t.boolean  "disable"
+    t.boolean  "disable",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
