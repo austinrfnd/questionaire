@@ -9,6 +9,10 @@ describe QuestionsController do
     it "recognizes and generates #new" do
       { :get => "/questions/new" }.should route_to(:controller => "questions", :action => "new")
     end
+    
+    it "recognizes and generates #admin" do
+      { :get => "/questions/admin" }.should route_to(:controller => "questions", :action => "admin")
+    end    
 
     it "recognizes and generates #show" do
       { :get => "/questions/1" }.should route_to(:controller => "questions", :action => "show", :id => "1")

@@ -5,8 +5,9 @@ class QuestionsController < ApplicationController
     @questions = Question.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      # format.html # index.html.erb
       format.xml  { render :xml => @questions }
+      format.json { render :json => @questions }
     end
   end
 
@@ -16,8 +17,9 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      # format.html # show.html.erb
       format.xml  { render :xml => @question }
+      format.json { render :json => @question }      
     end
   end
 
@@ -27,15 +29,16 @@ class QuestionsController < ApplicationController
     @question = Question.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      # format.html # new.html.erb
       format.xml  { render :xml => @question }
+      format.json { render :json => @question }
     end
   end
 
   # GET /questions/1/edit
-  def edit
-    @question = Question.find(params[:id])
-  end
+  # def edit
+  #   @question = Question.find(params[:id])
+  # end
 
   # POST /questions
   # POST /questions.xml
@@ -45,11 +48,13 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.save
         flash[:notice] = 'Question was successfully created.'
-        format.html { redirect_to(@question) }
+        # format.html { redirect_to(@question) }
         format.xml  { render :xml => @question, :status => :created, :location => @question }
+        format.json  { render :json => @question, :status => :created, :location => @question }        
       else
-        format.html { render :action => "new" }
+        # format.html { render :action => "new" }
         format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
+        format.xml  { render :json => @question.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -62,11 +67,13 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.update_attributes(params[:question])
         flash[:notice] = 'Question was successfully updated.'
-        format.html { redirect_to(@question) }
+        # format.html { redirect_to(@question) }
         format.xml  { head :ok }
+        format.json { head :ok }
       else
-        format.html { render :action => "edit" }
+        # format.html { render :action => "edit" }
         format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @question.errors, :status => :unprocessable_entity }        
       end
     end
   end
@@ -78,8 +85,11 @@ class QuestionsController < ApplicationController
     @question.destroy
 
     respond_to do |format|
-      format.html { redirect_to(questions_url) }
+      # format.html { redirect_to(questions_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def admin
   end
 end

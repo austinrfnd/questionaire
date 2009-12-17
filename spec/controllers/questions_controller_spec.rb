@@ -47,11 +47,11 @@ describe QuestionsController do
         assigns[:question].should equal(mock_question)
       end
 
-      it "redirects to the created question" do
-        Question.stub!(:new).and_return(mock_question(:save => true))
-        post :create, :question => {}
-        response.should redirect_to(question_url(mock_question))
-      end
+      # it "redirects to the created question" do
+      #   Question.stub!(:new).and_return(mock_question(:save => true))
+      #   post :create, :question => {}
+      #   response.should redirect_to(question_url(mock_question))
+      # end
     end
 
     describe "with invalid params" do
@@ -61,11 +61,11 @@ describe QuestionsController do
         assigns[:question].should equal(mock_question)
       end
 
-      it "re-renders the 'new' template" do
-        Question.stub!(:new).and_return(mock_question(:save => false))
-        post :create, :question => {}
-        response.should render_template('new')
-      end
+      # it "re-renders the 'new' template" do
+      #   Question.stub!(:new).and_return(mock_question(:save => false))
+      #   post :create, :question => {}
+      #   response.should render_template('new')
+      # end
     end
 
   end
@@ -85,11 +85,11 @@ describe QuestionsController do
         assigns[:question].should equal(mock_question)
       end
 
-      it "redirects to the question" do
-        Question.stub!(:find).and_return(mock_question(:update_attributes => true))
-        put :update, :id => "1"
-        response.should redirect_to(question_url(mock_question))
-      end
+      # it "redirects to the question" do
+      #   Question.stub!(:find).and_return(mock_question(:update_attributes => true))
+      #   put :update, :id => "1"
+      #   response.should redirect_to(question_url(mock_question))
+      # end
     end
 
     describe "with invalid params" do
@@ -105,11 +105,11 @@ describe QuestionsController do
         assigns[:question].should equal(mock_question)
       end
 
-      it "re-renders the 'edit' template" do
-        Question.stub!(:find).and_return(mock_question(:update_attributes => false))
-        put :update, :id => "1"
-        response.should render_template('edit')
-      end
+      # it "re-renders the 'edit' template" do
+      #   Question.stub!(:find).and_return(mock_question(:update_attributes => false))
+      #   put :update, :id => "1"
+      #   response.should render_template('edit')
+      # end
     end
 
   end
@@ -121,11 +121,11 @@ describe QuestionsController do
       delete :destroy, :id => "37"
     end
 
-    it "redirects to the questions list" do
-      Question.stub!(:find).and_return(mock_question(:destroy => true))
-      delete :destroy, :id => "1"
-      response.should redirect_to(questions_url)
-    end
+    # it "redirects to the questions list" do
+    #   Question.stub!(:find).and_return(mock_question(:destroy => true))
+    #   delete :destroy, :id => "1"
+    #   response.should redirect_to(questions_url)
+    # end
   end
 
 end
