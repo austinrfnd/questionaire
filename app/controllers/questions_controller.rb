@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => 'create'
+  
   # GET /questions
   # GET /questions.xml
   def index
@@ -85,8 +87,15 @@ class QuestionsController < ApplicationController
   def disable
     @question = Question.find(params[:id])
     @question.disable = true
-    @question.save!
-    head :ok
+    
+    respond_to do |format|
+      if @question.save
+        head :ok
+      else
+        format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
+        format.json  { render :json => @question.errors, :status => :unprocessable_entity }
+      end
+    end
   end
   
   # /questions/admin
