@@ -82,6 +82,13 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def disable
+    @question = Question.find(params[:id])
+    @question.disable = true
+    @question.save!
+    head :ok
+  end
+  
   # /questions/admin
   def admin
     @questions = Question.all_ready_to_go

@@ -16,6 +16,6 @@ $(document).ready(function(){
 		var parent_tr = $(this).parents("tr")[0];
 		$(parent_tr).slideUp();
 		var id = $(parent_tr).attr("id");
-		// AJAX the update POST
+		$.post("/questions/"+id+"/disable", { _method: "put", authenticity_token: encodeURIComponent(window._auth_token)});
 	});
 });
