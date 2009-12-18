@@ -5,6 +5,9 @@ body, p, ol, ul, td {
   font-size:   13px;
   line-height: 18px;
 }
+.shaded {
+	background-color: #ECF1EF;
+}
 
 pre {
   background-color: #eee;
