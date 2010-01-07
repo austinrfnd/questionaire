@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  validates_presence_of :user_id
+  # validates_presence_of :user_id
   validates_length_of :question, :minimum => 10
   
   # Find the undisabled questions within the last 5 minutes sorted by created_at

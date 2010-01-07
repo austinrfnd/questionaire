@@ -50,6 +50,10 @@ class QuestionsController < ApplicationController
 
   # POST /questions
   # POST /questions.xml
+  # POST BODY = {:question => {:question => "This is my question",
+  #                             :name => "Bob",
+  #                             :user_id => 123,
+  #                             :profile_image => 'url to profile image'}}
   def create
     @question = Question.new(params[:question])
 
