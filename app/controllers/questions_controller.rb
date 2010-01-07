@@ -55,6 +55,8 @@ class QuestionsController < ApplicationController
   #                             :user_id => 123,
   #                             :profile_image => 'url to profile image'}}
   def create
+    params.delete(:action)
+    params.delete(:controller)
     @question = Question.new(params)
 
     respond_to do |format|
