@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!DOCTYPE cross-domain-policy SYSTEM "http://www.adobe.com/xml/dtds/cross-domain-policy.dtd">
+<cross-domain-policy>
+	<site-control permitted-cross-domain-policies="all"/>
+	<allow-access-from domain="*.72development.com" secure="false"/>
+	<allow-access-from domain="*.facebook.com" secure="false"/>
+	<allow-http-request-headers-from domain="*.72development.com" headers="*" secure="false"/>
+	<allow-http-request-headers-from domain="*.facebook.com" headers="*" secure="false"/>
+</cross-domain-policy>
