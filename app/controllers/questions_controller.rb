@@ -55,7 +55,7 @@ class QuestionsController < ApplicationController
   #                             :user_id => 123,
   #                             :profile_image => 'url to profile image'}}
   def create
-    @question = Question.new(params[:question])
+    @question = Question.new(params)
 
     respond_to do |format|
       if @question.save
