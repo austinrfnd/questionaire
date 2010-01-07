@@ -6,6 +6,8 @@ class QuestionsController < ApplicationController
   def index
     if params[:all]
       @questions = Question.all_ready_to_go
+    elsif params[:debug]
+      @questions = Question.find(:all)
     else
       @questions = Question.ready_to_go
     end
