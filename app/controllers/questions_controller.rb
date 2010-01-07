@@ -66,6 +66,7 @@ class QuestionsController < ApplicationController
         format.xml  { render :xml => @question, :status => :created, :location => @question }
         format.json  { render :json => @question, :status => :created, :location => @question }        
       else
+        logger.error(@question.errors.inspect)
         # format.html { render :action => "new" }
         format.xml  { render :xml => @question.errors, :status => :unprocessable_entity }
         format.xml  { render :json => @question.errors, :status => :unprocessable_entity }
