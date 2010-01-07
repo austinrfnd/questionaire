@@ -9,14 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091217194553) do
+ActiveRecord::Schema.define(:version => 20100107011310) do
 
   create_table "questions", :force => true do |t|
     t.integer  "user_id"
     t.text     "question"
-    t.boolean  "disable",    :default => false
+    t.boolean  "disable",       :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "profile_image"
   end
 
 end

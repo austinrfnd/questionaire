@@ -1,4 +1,5 @@
 %tr{:id => question.id, :class => question_counter.even? ? 'shaded' : ''}
 	%td= question.user_id
+	%td= question.user_name
 	%td= question.question
 	%td= check_box_tag( 'disabled', :class => question.id)
