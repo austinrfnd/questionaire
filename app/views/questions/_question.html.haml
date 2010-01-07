@@ -1,5 +1,5 @@
 %tr{:id => question.id, :class => question_counter.even? ? 'shaded' : ''}
 	%td= question.user_id
-	%td= question.name
-	%td= question.question
+	%td= CGI::unescape(question.name)
+	%td= CGI::unescape(question.question)
 	%td= check_box_tag( 'disabled', :class => question.id)
