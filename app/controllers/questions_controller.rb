@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
     if params[:all]
       @questions = Question.all_ready_to_go
     elsif params[:preview]
-      @questions = Question.find(:all, :limit => '100', :order => "created_at DESC", :conditions => ["disable = false"])
+      @questions = Question.find(:all, :limit => '100', :order => "created_at DESC", :conditions => ["disable = ? AND created_at < ?", false, 1.minute.ago])
     elsif params[:debug]
       @questions = Question.find(:all)
     else
