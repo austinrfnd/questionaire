@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     elsif params[:debug]
       @questions = Question.find(:all)
     else
-      Question.find(:all, :conditions => ["created_at > ? AND created_at < ? AND disable = ?", 2.minutes.ago, 1.minute.ago, false])
+      @questions = Question.find(:all, :conditions => ["created_at > ? AND created_at < ? AND disable = ?", 2.minutes.ago, 1.minute.ago, false])
     end
     
     respond_to do |format|
