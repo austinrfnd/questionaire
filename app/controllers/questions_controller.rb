@@ -57,7 +57,7 @@ class QuestionsController < ApplicationController
   def create
     user_id = params[:user_id].to_i unless params[:user_id].blank?
     @question = Question.new(:question => params[:question], :name => params[:name], 
-                              :user_id => user_id, :profile_image => params[:profile_iamge])
+                              :user_id => user_id, :profile_image => params[:profile_image])
 
     respond_to do |format|
       if @question.save
