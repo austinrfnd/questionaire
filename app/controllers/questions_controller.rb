@@ -97,7 +97,11 @@ class QuestionsController < ApplicationController
 
   def disable
     @question = Question.find(params[:id])
-    @question.disable = true
+    if @question.disable
+      @question.disable = false
+    else
+      @question.disable = true
+    end      
     
     respond_to do |format|
       if @question.save
