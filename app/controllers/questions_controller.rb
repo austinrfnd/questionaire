@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => 'create'
-  
+  before_filter :authenticate, :only => 'admin'
   # GET /questions
   # GET /questions.xml
   def index
@@ -117,4 +117,14 @@ class QuestionsController < ApplicationController
   def admin
     @questions = Question.all_ready_to_go
   end
+  
+  private
+    def authenticate
+      # only for staging
+      if RAILS_ENV == 'staging'
+        authenticate_or_request_with_http_basic do |user_name, password|
+          user_name == '72' && password == '72'
+        end
+      end
+    end
 end
